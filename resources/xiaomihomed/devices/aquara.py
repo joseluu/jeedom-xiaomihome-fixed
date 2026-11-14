@@ -1,4 +1,3 @@
-from past.builtins import basestring
 import socket
 import binascii
 import struct
@@ -58,7 +57,7 @@ class XiaomiConnector:
 		"""Handle an incoming payload, save related data if needed,
 		and use the callback if there is one.
 		"""
-		if isinstance(payload.get('data', None), basestring):
+		if isinstance(payload.get('data', None), str):
 			cmd = payload["cmd"]
 			token =''
 			if "token" in payload:
@@ -112,6 +111,8 @@ class XiaomiConnector:
 		return self.nodes
 
 def get_key(data):
+				if data["sidG"] not in globals.CONNECTOR.last_tokens:
+					raise Exception("aucun token recu de la gateway " + str(data["sidG"]) + " : verifier que le protocole LAN (mode developpeur) est toujours actif sur la gateway et qu'elle est joignable")
 				init_vector = bytes(bytearray.fromhex('17996d093d28ddb3ba695a2e6f58562e'))
 				encryptor = Cipher(algorithms.AES(data['password'].encode()), modes.CBC(init_vector), backend=default_backend()).encryptor()
 				ciphertext = encryptor.update(globals.CONNECTOR.last_tokens[data["sidG"]].encode()) + encryptor.finalize()

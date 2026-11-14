@@ -7,7 +7,6 @@ import os
 import socket
 import struct
 
-from future.utils import raise_from
 
 from .decorator import decorator
 from .enums import BulbType, LightType, PowerMode, SceneClass
@@ -396,7 +395,7 @@ class Bulb(object):
             # create a new one.
             self.__socket.close()
             self.__socket = None
-            raise_from(BulbException("A socket error occurred when sending the command."), ex)
+            raise BulbException("A socket error occurred when sending the command.") from ex
 
         if self._music_mode:
             # We're in music mode, nothing else will happen.
