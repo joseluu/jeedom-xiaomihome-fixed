@@ -82,6 +82,8 @@ Ne supprimez pas le plugin : la suppression efface aussi ses équipements. Réin
 
 Rien à défaire : l'installation remplace tous les fichiers du plugin.
 
+Jeedom ne supprime pas les fichiers qui n'existent plus dans la nouvelle version : d'anciens scripts (`resources/install_apt.sh`, `resources/install_force_apt.sh`, `resources/xiaomihome.py`…) peuvent donc rester sur le disque. Ils ne sont plus utilisés, puisque Jeedom installe les dépendances à partir de `packages.json` ; vous pouvez les laisser ou les supprimer.
+
 Si les dépendances restent NOK après l'installation, l'environnement virtuel Python d'une tentative précédente est peut-être abîmé. Supprimez-le puis relancez les dépendances depuis Jeedom :
 
 ```bash
@@ -103,7 +105,7 @@ Les paquets installés à la main avec `apt` (`python3-pyudev`, `python3-serial`
 | Environnement | Résultat |
 |---|---|
 | Jeedom 4.6.2, Debian 12, Python 3.11 (conteneur de test) : installation depuis GitHub, dépendances, démon, création d'équipements à partir de messages de gateway simulés | OK |
-| Jeedom 4.6.1, Debian 11, Python 3.9.2 avec une vraie gateway Aqara : `jeedom.py` corrigé | Mémoire du démon stable, remontées des capteurs OK |
+| Jeedom 4.6.1, Debian 11, Python 3.9.2 avec une vraie gateway Aqara : bascule d'une installation Market (version `2021-07-27`, 16 équipements) vers ce fork | Équipements conservés, dépendances OK sans réinstallation, mémoire du démon stable à 33 Mo, remontées des capteurs OK |
 | Démon seul sous Python 3.9, 3.11 et 3.13 avec uniquement `requests` et `cryptography` | OK |
 
 Les ampoules Yeelight et les appareils Wifi (aspirateur, purificateur…) n'ont pas été testés sur du matériel réel. Les retours sont les bienvenus dans les [issues](https://github.com/joseluu/jeedom-xiaomihome-fixed/issues).
