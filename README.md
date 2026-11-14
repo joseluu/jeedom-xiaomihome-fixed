@@ -17,6 +17,8 @@ Il part de la dernière version publiée sur le Market (`2022-06-06`), qui n'év
 
 Ce fork n'est pas le plugin officiel et n'est pas distribué par le Market.
 
+Discussion et retours d'expérience : [Plugin xiaomihome mis à jour](https://community.jeedom.com/t/plugin-xiaomihome-mis-a-jour/151880) sur le forum Jeedom.
+
 ## Ce que ce fork corrige
 
 | Problème constaté | Cause | Correction |
@@ -108,7 +110,7 @@ Les paquets installés à la main avec `apt` (`python3-pyudev`, `python3-serial`
 | Jeedom 4.6.1, Debian 11, Python 3.9.2 avec une vraie gateway Aqara : bascule d'une installation Market (version `2021-07-27`, 16 équipements) vers ce fork | Équipements conservés, dépendances OK sans réinstallation, mémoire du démon stable à 33 Mo, remontées des capteurs OK |
 | Démon seul sous Python 3.9, 3.11 et 3.13 avec uniquement `requests` et `cryptography` | OK |
 
-Les ampoules Yeelight et les appareils Wifi (aspirateur, purificateur…) n'ont pas été testés sur du matériel réel. Les retours sont les bienvenus dans les [issues](https://github.com/joseluu/jeedom-xiaomihome-fixed/issues).
+Les ampoules Yeelight et les appareils Wifi (aspirateur, purificateur…) n'ont pas été testés sur du matériel réel. Les retours sont les bienvenus sur le forum Jeedom, dans le sujet [Plugin xiaomihome mis à jour](https://community.jeedom.com/t/plugin-xiaomihome-mis-a-jour/151880), ou dans les [issues](https://github.com/joseluu/jeedom-xiaomihome-fixed/issues) de ce dépôt.
 
 ## Licence
 
